@@ -5,12 +5,21 @@
 
 <form action="{{ route('pelanggan.store') }}" method="POST">
     @csrf
-    <div class="item">
-        <label for="nama_pelanggan">Nama Pelanggan</label>
-        <input type="text" name="nama_pelanggan" required>
+    @if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+    @endif
 
-        <label for="jumlah_transaksi">Jumlah Transaksi (Opsional)</label>
-        <input type="number" name="jumlah_transaksi" value="0" min="0">
+    <div class="item">
+        <label for="nama">Nama Pelanggan</label>
+        <input type="text" name="nama" required>
+
+        <label for="no_hp">No HP</label>
+        <input type="number" name="no_hp" required>
+
+        <label for="total_transaksi">Total Transaksi</label>
+        <input type="number" name="total_transaksi" min="0">
 
         <button type="submit">Simpan</button>
     </div>

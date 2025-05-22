@@ -12,16 +12,20 @@
 <table>
     <thead>
         <tr>
-            <th>Nama Pelanggan</th>
-            <th>Jumlah Transaksi</th>
+            <th>Nama</th>
+            <th>No HP</th>
+            <th>Total Transaksi</th>
+            <th>Membership</th>
             <th>Aksi</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($pelanggans as $pelanggan)
         <tr>
-            <td>{{ $pelanggan->nama_pelanggan }}</td>
-            <td>{{ $pelanggan->total_transaksi }}</td>
+            <td>{{ $pelanggan->nama }}</td>
+            <td>{{ $pelanggan->no_hp }}</td>
+            <td>Rp{{ number_format ($pelanggan->total_transaksi, 0, ',', '.' )}}</td>
+            <td>{{ $pelanggan->membership }}</td>
             <td>
                 <a href="{{ route('pelanggan.edit', $pelanggan->id) }}" class="btn btn-edit">Edit</a>
                 <form action="{{ route('pelanggan.destroy', $pelanggan->id) }}" method="POST" style="display:inline;">

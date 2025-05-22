@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pelanggan');
+            $table->string('nama');
+            $table->string('no_hp');
             $table->integer('total_transaksi')->default(0);
+            $table->string('membership')->default('Bronze');
             $table->timestamps();
         });
     }

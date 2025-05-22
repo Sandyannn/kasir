@@ -16,20 +16,24 @@
         <thead>
             <tr>
                 <th>Nama Barang</th>
-                <th>Harga</th>
-                <th>Jumlah</th>
+                <th>Harga Sebelum Diskon</th>
                 <th>Diskon (%)</th>
-                <th>Total</th>
+                <th>Potongan (Rp)</th>
+                <th>Jumlah</th>
+                <th>Harga Setelah Diskon / Item</th>
+                <th>Total Harga Setelah Diskon</th>
             </tr>
         </thead>
         <tbody>
             @foreach($transaksi->details as $detail)
             <tr>
                 <td>{{ $detail->barang->nama_barang }}</td>
-                <td>Rp{{ number_format($detail->harga, 0, ',', '.') }}</td>
-                <td>{{ $detail->jumlah }}</td>
+                <td>Rp {{ number_format($detail->harga, 0, ',', '.') }}</td>
                 <td>{{ $detail->diskon_persen }}%</td>
-                <td>Rp{{ number_format($detail->total_harga_akhir, 0, ',', '.') }}</td>
+                <td>Rp {{ number_format($detail->diskon_rupiah, 0, ',', '.') }}</td>
+                <td>{{ $detail->jumlah }}</td>
+                <td>Rp {{ number_format($detail->harga - $detail->diskon_rupiah, 0, ',', '.') }}</td>
+                <td>Rp {{ number_format($detail->total_harga_akhir, 0, ',', '.') }}</td>
             </tr>
             @endforeach
         </tbody>
@@ -41,5 +45,8 @@
 
     <hr>
     <p>Terima kasih telah berbelanja di <strong>Toko Grosir</strong>!</p>
+
+    <a href="{{ route('transaksi.index') }}" class="btn btn-edit">Kembali</a>
+
 </div>
 @endsection

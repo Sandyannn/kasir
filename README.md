@@ -39,7 +39,7 @@ Aplikasi Kasir sederhana berbasis **Laravel** yang dikembangkan sebagai submisi 
 
  > Tampilan Nota
 
-![Screenshot 2025-05-23 092529](https://github.com/user-attachments/assets/23d23db4-c771-46aa-a189-7e24ac3542ce)
+![Screenshot 2025-05-23 093816](https://github.com/user-attachments/assets/af5e4c8b-ff00-40f1-b07f-4283521cf7ee)
 
 
 ## 🛠️ Teknologi yang Digunakan
